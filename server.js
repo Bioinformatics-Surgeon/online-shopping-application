@@ -15,7 +15,7 @@ const PORT = process.env.PORT || "3000";
 
 
 
-let fakeDB = [];
+let bamazon = [];
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname + '/public/index.html'))
 });
@@ -24,13 +24,13 @@ app.get('/', function(req, res){
 app.post('/items', function(req, res){
     const item = req.body;
     fakeDB.push(item);
-    console.log(fakeDB);
+    console.log(bamazon);
 
     res.send("item added");
 })
 
 app.get('/items', function(req, res){
-    res.send(fakeDB)
+    res.send(bamazon)
 })
 
 
