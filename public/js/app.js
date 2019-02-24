@@ -1,5 +1,5 @@
 $('#test').on('click', function(){
-    $.get('/items', function(data){
+    $.get('/products', function(data){
         console.log(data, "items we are getting back")
         $('#display').empty();
         data.forEach(ele => {
@@ -16,8 +16,4 @@ $("#add").on('click', function(){
     $.post('/items',{ name: name} , function(res){
         console.log(res)
     })
-})
-
-$("#rng").on('click', function(){
-    $('#display').append(Math.random() * 100000000) + 1
 })
