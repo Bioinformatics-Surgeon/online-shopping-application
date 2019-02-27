@@ -1,7 +1,3 @@
-// Dependencies
-// =============================================================
-
-// Requiring our models
 const db = require('../models');
 
 // Routes
@@ -9,39 +5,39 @@ const db = require('../models');
 module.exports = function(app) {
 
   // GET route for getting all of the articles
-  app.get('/api/articles', function(req, res) {
-    db.Article.findAll({}).then(function(dbArticle) {
-      res.json(dbArticle);
+  app.get('/api/products', function(req, res) {
+    db.Bamazon.findAll({}).then(function(dbBamazon) {
+      res.json(dbBamazon);
     }).catch(function(error) {
       res.json({ error: error });
     });
   });
 
   // Get route for retrieving a single article
-  app.get('/api/articles/:id', function(req, res) {
-    db.Article.findOne({
+  app.get('/api/products/:id', function(req, res) {
+    db.Product.findOne({
       where: {
         id: req.params.id
       }
-    }).then(function(dbArticle) {
-      res.json(dbArticle);
+    }).then(function(dbBamazon) {
+      res.json(dbBamazon);
     }).catch(function(error) {
       res.json({ error: error });
     });
   });
 
   // POST route for saving a new article
-  app.post('/api/articles', function(req, res) {
-    db.Article.create(req.body).then(function(dbArticle) {
-      res.json(dbArticle);
+  app.post('/api/Products', function(req, res) {
+    db.Article.create(req.body).then(function(dbBamazon) {
+      res.json(dbBamazon);
     }).catch(function(error) {
       res.json({ error: error });
     });
   });
 
   // PUT route for updating articles
-  app.put('/api/articles/:id', function(req, res) {
-    db.Article.update(
+  app.put('/api/Products/:id', function(req, res) {
+    db.Product.update(
       req.body,
       {
         where: {
@@ -55,13 +51,13 @@ module.exports = function(app) {
   });
 
   // DELETE route for deleting articles
-  app.delete('/api/articles/:id', function(req, res) {
-    db.Article.destroy({
+  app.delete('/api/Products/:id', function(req, res) {
+    db.Product.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbArticle) {
-      res.json(dbArticle);
+    }).then(function(dbBamazon) {
+      res.json(dbBamazon);
     }).catch(function(error) {
       res.json({ error: error });
     });
