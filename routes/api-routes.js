@@ -4,7 +4,7 @@ const db = require('../models');
 // =============================================================
 module.exports = function (app) {
 
-  // GET route for getting all of the articles
+  // GET route for getting all of the products
   app.get('/api/products', function (req, res) {
     db.Product.findAll({}).then(function (rows) {
       res.json(rows);
@@ -13,7 +13,7 @@ module.exports = function (app) {
     });
   });
 
-  // Get route for retrieving a single article
+  // Get route for retrieving a single new product
   app.get('/api/products/:id', function (req, res) {
     db.Product.find({
       where: {
@@ -26,7 +26,7 @@ module.exports = function (app) {
     });
   });
 
-  // POST route for saving a new article
+  // POST route for saving a new product
   app.put('/api/products/:id', function (req, res) {
     db.Product.update(
       req.body, { where: { id: req.params.id } }

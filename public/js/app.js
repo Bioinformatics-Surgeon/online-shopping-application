@@ -22,6 +22,8 @@ $(function () {
 
     const render = function (data) {
 
+        $('#myTable tr:last').after('<tr>...</tr><tr>...</tr>');
+
         console.log(data)
         // data.forEach(function (data) {
 
